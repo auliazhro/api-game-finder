@@ -6,7 +6,7 @@ Aplikasi web sederhana untuk mencari game menggunakan REST API.
 - Search game berdasarkan nama
 - Menampilkan rating & release date
 
-  # Teknologi
+# Teknologi
 - Python
 - HTML & CSS
 - REST API (RAWG)
