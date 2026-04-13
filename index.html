@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎮 Game Finder</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+     <style>
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #b9dbf8;
+            color: #003366;
+            text-align: center;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #003366; 
+            font-size: 24px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .menu li a:hover {
+            color: #1e90ff;
+        }
+
+        h1 {
+            color: #003366;
+            margin-top: 40px;
+            font-size: 36px;
+        }
+
+        form {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
+            margin-right: 10px;
+            width: 250px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            background: #1e90ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #4682b4;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h3 {
+            color: #003366; 
+            margin-top: 15px;
+        }
+
+        p {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 10px 0;
+            font-size: 12px;
+            color: #fff;
+            background-color: #003366; 
+            width: 100%;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">🎮 Game Finder</div>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/home">Search</a></li>
+      </ul>
+    </nav>
+
+    <h1>🎮 Game Finder 🎮</h1>
+
+    <form method="POST">
+      <input type="text" name="game" placeholder="Cari game..." required />
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="grid">
+      {% for g in games %}
+      <div class="card">
+        <img src="{{ g.image }}" alt="{{ g.name }}" />
+        <h3>{{ g.name }}</h3>
+        <p>⭐ {{ g.rating }}</p>
+        <p>📅 {{ g.released }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Game Finder | <a href="/privacy">Aulia Az Zahra</a></p>
+    </footer>
+  </body>
+</html>
